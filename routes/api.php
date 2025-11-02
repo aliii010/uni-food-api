@@ -8,4 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/food-categories', [FoodCategoryController::class, 'index']);
+Route::apiResource('food-categories', FoodCategoryController::class);
