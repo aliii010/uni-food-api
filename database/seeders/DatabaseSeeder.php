@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\FoodCategory;
+use App\Models\FoodItem;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        FoodCategory::factory(10)->create();
+        FoodItem::factory(100)->recycle(FoodCategory::all())->create();
     }
 }
