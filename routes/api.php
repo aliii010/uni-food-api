@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FoodCategoryController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -11,3 +12,6 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('food-categories', FoodCategoryController::class);
 Route::apiResource('users', UserController::class);
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
