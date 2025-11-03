@@ -16,6 +16,10 @@ class FoodCategoryController extends Controller
     }
 
     public function show(FoodCategory $foodCategory) {
+        if (request()->has('include')) {
+            $foodCategory->load(request()->input('include'));
+        }
+
         return new FoodCategoryResource($foodCategory);
     }
 }
