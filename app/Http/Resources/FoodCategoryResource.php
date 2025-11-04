@@ -21,7 +21,9 @@ class FoodCategoryResource extends JsonResource
                 'name' => $this->name,
                 'description' => $this->when($request->routeIs('food-categories.show'), $this->description)
             ],
-            'relationships' => [],
+            'relationships' => [
+                'foodItems',
+            ],
             'includes' => [
                 'foodItems' => FoodItemResource::collection($this->whenLoaded('foodItems'))
             ],
